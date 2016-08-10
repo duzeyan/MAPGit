@@ -1,0 +1,5 @@
+#! /bin/bash
+ulimit -c unlimited
+echo "/home/corefile/core-%e-%t" > /proc/sys/kernel/core_pattern
+
+
