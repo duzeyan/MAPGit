@@ -5,7 +5,7 @@
 /// MAP通信模块
 ///
 #ifdef _NJUST_OS_USE_WINDOWS_
-extern DWORD  WINAPI readOffLineData(LPVOID p);
+extern DWORD  WINAPI readOffLineData(LPVOID p);//读取离线数据
 #endif
 //注册MAP
 int MapCommunion::RegisterMap(){

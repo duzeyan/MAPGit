@@ -51,7 +51,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -76,6 +76,47 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\source\MapCommunion.h" />
+    <ClInclude Include="..\source\MapFileStream.h" />
+    <ClInclude Include="..\source\MapModule.h" />
+    <ClInclude Include="..\source\MapTools.h" />
+    <ClInclude Include="..\source\MAP_BASIC_data.h" />
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\ALV_BYD.h" />
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_2D_data.h" />
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_2D_proc.h" />
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_3D4_data.h" />
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_3D4_proc.h" />
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_3D64_data.h" />
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_3D64_proc.h" />
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_3DESR_data.h" />
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_3DESR_proc.h" />
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_FU_data.h" />
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_FU_proc.h" />
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_Global_Def.h" />
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_IP_comm.h" />
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_IR_data.h" />
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_IR_proc.h" />
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_LS_data.h" />
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_LS_proc.h" />
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_MAP_data.h" />
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_MAP_proc.h" />
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_MC_data.h" />
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_MC_proc.h" />
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_MC_typedef.h" />
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_MO_data.h" />
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_MO_proc.h" />
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_PL_data.h" />
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_PL_proc.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\source\MapCommunion.cpp" />
+    <ClCompile Include="..\source\MapFileStream.cpp" />
+    <ClCompile Include="..\source\MapModule.cpp" />
+    <ClCompile Include="..\source\MapTools.cpp" />
+    <ClCompile Include="..\source\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\source\NJUST_ALV_BYD_H\0_修改日志_版本号4.6.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

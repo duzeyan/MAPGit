@@ -41,9 +41,9 @@ extern FILE *gLOG_OUT;
     #define MAP_PRINT(fmt,v) 
 #endif
 
+
 //debug Êä³ö
 extern FILE *gDEBUG_OUT;
-
 #define _MAP_DEBUG 1
 #if _MAP_DEBUG
 #define DEBUG_PRINT(fmt,v)  fprintf(gDEBUG_OUT,fmt,v);fflush(gDEBUG_OUT)

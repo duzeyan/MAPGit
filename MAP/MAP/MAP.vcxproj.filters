@@ -5,13 +5,132 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="头文件">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
     <Filter Include="资源文件">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="比亚迪头文件">
+      <UniqueIdentifier>{22eeca00-cd66-47ca-bbdf-4c899ccdabea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="模块头文件">
+      <UniqueIdentifier>{05cc455b-0a76-4b7d-bd6e-9712a6757e7f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\ALV_BYD.h">
+      <Filter>比亚迪头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_2D_data.h">
+      <Filter>比亚迪头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_2D_proc.h">
+      <Filter>比亚迪头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_3D4_data.h">
+      <Filter>比亚迪头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_3D4_proc.h">
+      <Filter>比亚迪头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_3D64_data.h">
+      <Filter>比亚迪头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_3D64_proc.h">
+      <Filter>比亚迪头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_3DESR_data.h">
+      <Filter>比亚迪头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_3DESR_proc.h">
+      <Filter>比亚迪头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_FU_data.h">
+      <Filter>比亚迪头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_FU_proc.h">
+      <Filter>比亚迪头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_Global_Def.h">
+      <Filter>比亚迪头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_IP_comm.h">
+      <Filter>比亚迪头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_IR_data.h">
+      <Filter>比亚迪头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_IR_proc.h">
+      <Filter>比亚迪头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_LS_data.h">
+      <Filter>比亚迪头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_LS_proc.h">
+      <Filter>比亚迪头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_MAP_data.h">
+      <Filter>比亚迪头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_MAP_proc.h">
+      <Filter>比亚迪头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_MC_data.h">
+      <Filter>比亚迪头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_MC_proc.h">
+      <Filter>比亚迪头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_MC_typedef.h">
+      <Filter>比亚迪头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_MO_data.h">
+      <Filter>比亚迪头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_MO_proc.h">
+      <Filter>比亚迪头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_PL_data.h">
+      <Filter>比亚迪头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\NJUST_ALV_BYD_H\NJUST_PL_proc.h">
+      <Filter>比亚迪头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\MAP_BASIC_data.h">
+      <Filter>模块头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\MapCommunion.h">
+      <Filter>模块头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\MapFileStream.h">
+      <Filter>模块头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\MapModule.h">
+      <Filter>模块头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\MapTools.h">
+      <Filter>模块头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\source\MapCommunion.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\MapFileStream.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\MapModule.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\MapTools.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\source\NJUST_ALV_BYD_H\0_修改日志_版本号4.6.txt">
+      <Filter>比亚迪头文件</Filter>
+    </Text>
   </ItemGroup>
 </Project>

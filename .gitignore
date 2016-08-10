@@ -45,3 +45,10 @@ Temporary Items
 MAP/MAP.sdf
 *.db
 *.txt
+*.tlog
+MAP/Debug/MAP.ilk
+*.pdb
+*.obj
+*.idb
+DEBUG*
+LOGMAP*

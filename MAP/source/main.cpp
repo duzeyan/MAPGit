@@ -15,15 +15,22 @@ CRITICAL_SECTION  g_csThreadGPS;//GPS读取互斥
 
 //读取离线数据
 DWORD  WINAPI readOffLineData(LPVOID p){
+	static int GPScount=0;
+	int lines=0;
 	double lat,lng;//维度 精度 度
 	ifstream is;
 	string oneline;//一行数据
-	is.open("data.txt");
+	is.open("..\\datas\\data.txt");
 	if(!is.is_open()){
-		//MAP_PRINT("[error]打开离线文件错误%s","\n");
+		printf("[error]打开离线文件错误%s","\n");
 		return 0;
 	}
-	//MAP_PRINT("[info]打开离线文件成功%s","\n");
+	printf("[info]打开离线文件成功%s","\n");
+	while (getline(is,oneline)){
+		lines++;
+	}
+	is.clear();
+	is.seekg(0,ios::beg);//回到文件头
 	while (getline(is,oneline)){
 		istringstream stream(oneline);
 		stream>>lng>>lat;
@@ -43,6 +50,14 @@ DWORD  WINAPI readOffLineData(LPVOID p){
 		MapApp::s_mapPackage.count++;
 		LeaveCriticalSection(&g_csThreadGPS);
 		Sleep(10);
+		if(lines<1000)
+			printf("Reading:%03d/%03d \n",++GPScount,lines);
+		else if(lines<10000)
+			printf("Reading:%04d/%04d \n",++GPScount,lines);
+		else if(lines<100000)
+			printf("Reading:%05d/%05d \n",++GPScount,lines);
+		else
+			printf("Reading:%08d/%08d \n",++GPScount,lines);
 	}
 	return 0;
 }
