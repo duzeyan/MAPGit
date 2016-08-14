@@ -1,4 +1,4 @@
-#include "NJUST_ALV_BYD_H/ALV_BYD.h"
+ï»¿#include "NJUST_ALV_BYD_H/ALV_BYD.h"
 #include"MapModule.h"
 #include<iostream>
 #include <fstream>
@@ -10,43 +10,43 @@ using namespace std;
 
 
 #ifdef _NJUST_OS_USE_WINDOWS_
-//¹Ø¼ü¶Î±äÁ¿ÉùÃ÷  
-CRITICAL_SECTION  g_csThreadGPS;//GPS¶ÁÈ¡»¥³â
+//å…³é”®æ®µå˜é‡å£°æ˜  
+CRITICAL_SECTION  g_csThreadGPS;//GPSè¯»å–äº’æ–¥
 
-//¶ÁÈ¡ÀëÏßÊı¾İ
+//è¯»å–ç¦»çº¿æ•°æ®
 DWORD  WINAPI readOffLineData(LPVOID p){
 	static int GPScount=0;
 	int lines=0;
-	double lat,lng;//Î¬¶È ¾«¶È ¶È
+	double lat,lng;//ç»´åº¦ ç²¾åº¦ åº¦
 	ifstream is;
-	string oneline;//Ò»ĞĞÊı¾İ
+	string oneline;//ä¸€è¡Œæ•°æ®
 	is.open("..\\datas\\data.txt");
 	if(!is.is_open()){
-		printf("[error]´ò¿ªÀëÏßÎÄ¼ş´íÎó%s","\n");
+		printf("[error]æ‰“å¼€ç¦»çº¿æ–‡ä»¶é”™è¯¯%s","\n");
 		return 0;
 	}
-	printf("[info]´ò¿ªÀëÏßÎÄ¼ş³É¹¦%s","\n");
+	printf("[info]æ‰“å¼€ç¦»çº¿æ–‡ä»¶æˆåŠŸ%s","\n");
 	while (getline(is,oneline)){
 		lines++;
 	}
 	is.clear();
-	is.seekg(0,ios::beg);//»Øµ½ÎÄ¼şÍ·
+	is.seekg(0,ios::beg);//å›åˆ°æ–‡ä»¶å¤´
 	while (getline(is,oneline)){
 		istringstream stream(oneline);
 		stream>>lng>>lat;
-		EnterCriticalSection(&g_csThreadGPS);//½øÈë¸÷×ÓÏß³Ì»¥³âÇøÓò 
-		//¸üĞÂcurGPS
-		if(MapApp::s_GPSInfo.curLongtitude!=INITL_GPS_VALUE){  //²»ÊÇµÚÒ»´ÎÈ¡Öµ
+		EnterCriticalSection(&g_csThreadGPS);//è¿›å…¥å„å­çº¿ç¨‹äº’æ–¥åŒºåŸŸ 
+		//æ›´æ–°curGPS
+		if(MapApp::s_GPSInfo.curLongtitude!=INITL_GPS_VALUE){  //ä¸æ˜¯ç¬¬ä¸€æ¬¡å–å€¼
 			MapApp::s_GPSInfo.lastLongtitude=MapApp::s_GPSInfo.curLongtitude;
 			MapApp::s_GPSInfo.lastlatitudel=MapApp::s_GPSInfo.curLatitude;
-		}else                                               //µÚÒ»´ÎÈ¡Öµ
+		}else                                               //ç¬¬ä¸€æ¬¡å–å€¼
 		{
 			MapApp::s_GPSInfo.lastLongtitude=lng;
 			MapApp::s_GPSInfo.lastlatitudel=lat;
 		}
 		MapApp::s_GPSInfo.curLongtitude = lng;
 		MapApp::s_GPSInfo.curLatitude = lat;
-		//¼ÆËã¶ª°üÂÊÏà¹Ø
+		//è®¡ç®—ä¸¢åŒ…ç‡ç›¸å…³
 		MapApp::s_mapPackage.count++;
 		LeaveCriticalSection(&g_csThreadGPS);
 		Sleep(10);
@@ -63,8 +63,8 @@ DWORD  WINAPI readOffLineData(LPVOID p){
 }
 #endif
 
-/////////////////////////////////²âÊÔº¯Êı/////////////////////////////////////////
-//²âÊÔ MapFileStreamµÄLoadMapNode
+/////////////////////////////////æµ‹è¯•å‡½æ•°/////////////////////////////////////////
+//æµ‹è¯• MapFileStreamçš„LoadMapNode
 void testLoadMapNode(string s){
 	NJUST_MAP_BUILD_MAP buildMap;
 	MapFileStream *mapFile=new MapFileStream(s.c_str());
@@ -86,11 +86,11 @@ void testLoadMapNode(string s){
 	}
 
 	//for(unsigned int i=0;i<buildMap.mapObs.size();i++){
-		//MAP_PRINT("ÕÏ°­ÎïÖĞĞÄ:%lf\n",buildMap.mapObs[i].ObstacleCenterGPS.longtitude);
+		//MAP_PRINT("éšœç¢ç‰©ä¸­å¿ƒ:%lf\n",buildMap.mapObs[i].ObstacleCenterGPS.longtitude);
 	//}
 }
 
-//²âÊÔ MapFileStreamµÄLoadMapTask
+//æµ‹è¯• MapFileStreamçš„LoadMapTask
 void testLoadMapTask(string s){
 	vector<MAP_TASK_NODE_ZZ> taskMap;
 	MapFileStream *mapFile=new MapFileStream(s.c_str());
@@ -101,10 +101,10 @@ void testLoadMapTask(string s){
 		printf("%lf\n",(*it).longtitude);
 		printf("%lf\n",(*it).latitude);
 	}
-	printf("½á¹¹Ìå³¤¶È %lu",sizeof(MAP_TASK_NODE_ZZ));
+	printf("ç»“æ„ä½“é•¿åº¦ %lu",sizeof(MAP_TASK_NODE_ZZ));
 }
 
-//ÁÚ½Ó¾ØÕó
+//é‚»æ¥çŸ©é˜µ
 void testReadAdjst(string s){
 	NJUST_MAP_BUILD_MAP buildMap;
 	MapFileStream *mapFile=new MapFileStream(s.c_str());
@@ -119,7 +119,7 @@ void testReadAdjst(string s){
 	}
 }
 
-//²âÊÔ apFileStreamµÄ¶ÁÈ¡ĞòÁĞµã
+//æµ‹è¯• apFileStreamçš„è¯»å–åºåˆ—ç‚¹
 void testReadMapNode(string s){
 	vector<MAP_DOUBLE_POINT> GPSlist;
 	MapFileStream *mapFile=new MapFileStream(s.c_str());
@@ -138,7 +138,7 @@ void testReadMapNode(string s){
 	printf("fiset one: %lf  %lf\n",GPSlist[len-1].x,GPSlist[len-1].y);
 }
 
-//²âÊÔ ¶ÁÈ¡¼ÇÂ¼ÎÄ¼ş
+//æµ‹è¯• è¯»å–è®°å½•æ–‡ä»¶
 void testReadRecord(const char * filename){
 	int len,code; 
 	int curID,lastID;
@@ -151,7 +151,7 @@ void testReadRecord(const char * filename){
 	fread(&curID,sizeof(int),1,pFile);    //curID
 	fread(&lastID,sizeof(int),1,pFile);   //lastID
 
-	//¹æ»®Â·Ïß
+	//è§„åˆ’è·¯çº¿
 	fread(&len,sizeof(int),1,pFile); 
 	fread(&_planPath.cur,sizeof(int),1,pFile); 
 	for(int i=0;i<len;i++){
@@ -159,18 +159,18 @@ void testReadRecord(const char * filename){
 		_planPath.planPathQueue.push_back(code);
 	}
 
-	//GPSµã
+	//GPSç‚¹
 	fread(&len,sizeof(int),1,pFile);
-	printf("len£º%d\n",len);
+	printf("lenï¼š%d\n",len);
 	for(int i=0;i<len;i++){
 		fread(&point,sizeof(MAP_DOUBLE_POINT),1,pFile);
 		_GPSList.push_back(point);
 	}
 	fclose(pFile);
 
-	printf("curID£º%d\n",curID);
-	printf("lastID£º%d\n",lastID);
-	printf("_planPath.cur£º%d\n",_planPath.cur);
+	printf("curIDï¼š%d\n",curID);
+	printf("lastIDï¼š%d\n",lastID);
+	printf("_planPath.curï¼š%d\n",_planPath.cur);
 	for(size_t i=0;i<_planPath.planPathQueue.size();i++){
 		printf("%lu:%d\n",i+1,_planPath.planPathQueue[i]);
 	}
@@ -179,12 +179,12 @@ void testReadRecord(const char * filename){
 	}
 
 }
-///////////////////////////////////³õÊ¼»¯DEBUGÊä³ö///////////////////////////////////////
+///////////////////////////////////åˆå§‹åŒ–DEBUGè¾“å‡º///////////////////////////////////////
 
 
 
 int main(int argc,char *argv[]){
-	//Step 1 -----------¼ìÑéÊäÈë²ÎÊı--------------
+	//Step 1 -----------æ£€éªŒè¾“å…¥å‚æ•°--------------
 #ifdef _NJUST_OS_USE_WINDOWS_
 	string s="njustmap\\";
 	InitializeCriticalSection(&g_csThreadGPS);
@@ -194,12 +194,12 @@ int main(int argc,char *argv[]){
 	string s="njustmap/";
 #endif
 
-	//Step 2 -----------ÔËĞĞ--------------
+	//Step 2 -----------è¿è¡Œ--------------
 	MapApp mapapp;
 	mapapp.initalize(s.c_str());
 	mapapp.run();
 
-	//Step 3 -----------¹Ø±ÕDEBUG--------------
+	//Step 3 -----------å…³é—­DEBUG--------------
 	fclose(gDEBUG_OUT);
 	fclose(gLOG_OUT);
 

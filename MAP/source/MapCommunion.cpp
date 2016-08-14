@@ -57,7 +57,6 @@ int MapCommunion::ReciveBroadcastMsg(func_t func){
 int MapCommunion::RegisterOffLineSys(){
 #ifdef _NJUST_OS_USE_WINDOWS_
 	CreateThread(NULL, 0,readOffLineData, NULL, 0, NULL);
-
 #endif
 	return 0;
 }

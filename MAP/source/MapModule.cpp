@@ -37,6 +37,7 @@ NJUST_MAP_WORK_MODEL MapApp::s_WorkModel=MAP_WORK_NORMAL;
 
 FILE* gDEBUG_OUT=NULL;
 FILE* gLOG_OUT=NULL;
+FILE* gOFFData=NULL;
 void initDeBug(){
 	char logName[1024] = {0};  
 	time_t now;  
@@ -59,6 +60,20 @@ void initLog(){
 		local->tm_mday, local->tm_hour, local->tm_min, local->tm_sec);  
 	gLOG_OUT = fopen(logName,"a+");  
 	return ;  
+}
+
+void intOFFlineData(){
+#ifdef _MAP_OFF_DATA_
+	char logName[1024] = {0};  
+	time_t now;  
+	time(&now);  
+	struct tm *local;  
+	local = localtime(&now);  
+	sprintf(logName,"OFFDATA-%04d-%02d-%02d_%02d-%02d-%02d", local->tm_year+1900, local->tm_mon+1,  
+		local->tm_mday, local->tm_hour, local->tm_min, local->tm_sec);  
+	gOFFData = fopen(logName,"a+");  
+	return ;  
+#endif
 }
 
 
@@ -135,7 +150,6 @@ void MapApp::run(){
 		LeaveCriticalSection(&g_csThreadGPS);//进入各子线程互斥区域 
 #endif
 		MapTools::ms_sleep(10);		//控制接受频率
-
 		//Step 2.2 -----------丢弃不合理GPS数据--------------
 		if (MapTools::CheckGPS(curLng,curLat,lastLng,lastLat))
 		{	
@@ -524,6 +538,7 @@ void MapApp::initalize(const char* loadpath){
 	//Step 1 -----------初始化日志系统--------------
 	initDeBug();
 	initLog();
+	intOFFlineData();
 
 	//Step 2 -----------从文件中读取地图数据--------------
 	//try{
@@ -880,6 +895,7 @@ int  MapApp::MCCallBack(void* mc_to_map, size_t size, void* args){
 		MapApp::s_mapPackage.endID=pNav->navID;
 		MapApp::s_GPSInfo.curLongtitude = pNav->Longitude_degree;
 		MapApp::s_GPSInfo.curLatitude = pNav->Latitude_degree;
+		MapTools::SaveGPSDataForOffLine(MapApp::s_GPSInfo.curLongtitude,MapApp::s_GPSInfo.curLatitude);//写离线数据
 		//计算丢包率相关
 		MapApp::s_mapPackage.count++;
 		MapApp::s_mapPackage.startTime=NJUST_IP_get_time();
@@ -1231,7 +1247,7 @@ void MapApp::recordWrite(int curID,int lastID,int sIndex){
 	MAP_DOUBLE_POINT  point;
 	_pRecord=fopen(RECORD_FILE_NAME,"wb");
 	
-	//Step 1 -----------记录当前状态索引--------------
+	//Step 1 -----------记录当前状态和状态索引--------------
 	fwrite(&curID,sizeof(int),1,_pRecord);    //curID
 	fwrite(&lastID,sizeof(int),1,_pRecord);   //lastID
 	fwrite(&MapApp::s_WorkModel,sizeof(NJUST_MAP_WORK_MODEL),1,_pRecord);//work model

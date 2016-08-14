@@ -500,3 +500,13 @@ int MapTools::Code2ID(int code,int type){
 	}
 	return -1;
 }
+
+//保存惯导数据
+int  MapTools::SaveGPSDataForOffLine(double lng,//经度
+								 double lat){//维度
+	if(gOFFData==NULL)
+		return 0;
+	fprintf(gOFFData,"%.8lf %.8lf\n",lng,lat);
+	fflush(gOFFData);
+	return 0;
+}

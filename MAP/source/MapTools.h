@@ -178,6 +178,10 @@ public:
 	 // 参数:   int type  类型，1为节点 2为道路
 	 //************************************
 	 int static Code2ID(int code,int type);
+
+	 //保存惯导数据
+	 int static SaveGPSDataForOffLine(double lng,//经度
+									double lat);//维度
 };
 
 #endif

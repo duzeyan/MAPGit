@@ -41,6 +41,9 @@ extern FILE *gLOG_OUT;
     #define MAP_PRINT(fmt,v) 
 #endif
 
+extern FILE *gOFFData;
+#define _MAP_OFF_DATA_
+
 
 //debug Êä³ö
 extern FILE *gDEBUG_OUT;
